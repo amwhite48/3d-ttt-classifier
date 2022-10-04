@@ -37,7 +37,7 @@ class ShapeDataset(tfds.core.GeneratorBasedBuilder):
         # If there's a common (input, target) tuple from the
         # features, specify them here. They'll be used if
         # `as_supervised=True` in `builder.as_dataset`.
-        supervised_keys=('image', 'label'),  # Set to `None` to disable
+        supervised_keys=('None'),  # Set to `None` to disable
         homepage='https://dataset-homepage/',
         citation=_CITATION,
     )
@@ -51,7 +51,6 @@ class ShapeDataset(tfds.core.GeneratorBasedBuilder):
 
   def _generate_examples(self, path):
     """Yields examples."""
-    # TODO(shape_dataset): Yields (key, example) tuples from the dataset
     for f in path.glob('*.npy'):
       image_id = random.getrandbits(256)
       if f.name.startswith('teapot'):

@@ -60,15 +60,12 @@ m.compile(
 
 m.model.summary()
 
-
 history = m.fit(
     train,
     validation_data = test, 
-    epochs     = 1, 
+    epochs     = 10, 
     batch_size = 100
 )
-
-print(history.history.keys())
 
 # summarize history for accuracy
 plt.plot(history.history['categorical_accuracy'])
@@ -78,6 +75,7 @@ plt.ylabel('accuracy')
 plt.xlabel('epoch')
 plt.legend(['train', 'test'], loc='upper left')
 plt.savefig('val_accuracy.png')
+plt.clf()
 # summarize history for loss
 plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
